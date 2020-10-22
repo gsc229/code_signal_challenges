@@ -1,17 +1,17 @@
 function strstr(s, x) {
 
-  const xLength = x.length
-
-  
+  const dictionary = {}
+  let lengthX = x.length
 
   for(let i = 0; i < s.length; i++){
-    const window = s.slice(i, i + xLength)
-    if(window === x){
-      return i
+    const entry = s.slice(i, i + x.length)
+    console.log({entry, lengthX})
+    if(!dictionary[entry]){
+      dictionary[entry] = i
     }
   }
-
-  return -1
+  console.log(dictionary)
+  return dictionary[x] ? dictionary[x] : -1
 }
 
 const s1= "CodefightsIsAwesome"
@@ -20,6 +20,12 @@ const x1= "IA"
 const s2 = "CodefightsIsAwesome"
 const x2 = "IsA"
 
-console.log(strstr(s2, x2))
+const s3 =  "CodefightsIsAwesome"
+const x3 =  "IsA"
+
+const s4 = "ATErUUeUkVFVNfxfUKtntOErKmZLUpWpHRASdxjUhzzxygmnNnKabPPgPqyvCLSCZObaNNGCXQssfEEDDJIPBwtkMmTniKapBlrd"
+const x4 = "vCLSCZObaNNGCXQssfEEDDJIPBwtkMmTniKa"
+
+console.log(strstr(s4, x4))
 
 // optimize this code
