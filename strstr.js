@@ -1,17 +1,26 @@
 function strstr(s, x) {
+  if(s===x){
+    return 0
+}
 
-  const dictionary = {}
-  let lengthX = x.length
+const dictionary = {}
+let lengthX = x.length
 
-  for(let i = 0; i < s.length; i++){
-    const entry = s.slice(i, i + x.length)
-    console.log({entry, lengthX})
-    if(!dictionary[entry]){
-      dictionary[entry] = i
+
+for(let i = 0; i < s.length; i++){
+    
+    const entry = s.slice(i, i + lengthX)
+    
+    if(entry.length < lengthX){
+    break
     }
-  }
-  console.log(dictionary)
-  return dictionary[x] ? dictionary[x] : -1
+
+    if(!dictionary[entry]){
+    dictionary[entry] = i
+    }
+}
+
+return dictionary[x] ? dictionary[x] : -1
 }
 
 const s1= "CodefightsIsAwesome"
