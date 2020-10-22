@@ -3,7 +3,7 @@ function strstr(s, x) {
   const dictionary = {}
     
   for(let i = 0; i < s.length; i++){
-      dictionary[s.slice(i, x.length)] = i
+      dictionary[s.slice(i, i +  x.length)] = i
   }
   console.log(dictionary)
   return dictionary[x] ? dictionary[x] : -1
@@ -23,6 +23,6 @@ const s4 = "ATErUUeUkVFVNfxfUKtntOErKmZLUpWpHRASdxjUhzzxygmnNnKabPPgPqyvCLSCZOba
 //                                                                     |                                   |
 const x4 = "vCLSCZObaNNGCXQssfEEDDJIPBwtkMmTniKa"
 
-console.log(strstr(s3, x3))
+console.log(strstr(s4, x4))
 
 // optimize this code
