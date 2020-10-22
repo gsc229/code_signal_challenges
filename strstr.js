@@ -1,26 +1,21 @@
 function strstr(s, x) {
   if(s===x){
-    return 0
-}
+    return 0  
+  }
 
-const dictionary = {}
-let lengthX = x.length
+const tryLimit = 1000000
 
-
-for(let i = 0; i < s.length; i++){
+for(let i = 1; i < tryLimit; i++){
     
-    const entry = s.slice(i, i + lengthX)
-    
-    if(entry.length < lengthX){
-    break
-    }
-
-    if(!dictionary[entry]){
-    dictionary[entry] = i
+    const randomIndex = Math.floor(Math.random() * s.length)
+    const randomStr = s.slice(randomIndex, randomIndex + x.length)
+    console.log({randomIndex, randomStr})
+    if(x === randomStr){
+        return randomIndex
     }
 }
 
-return dictionary[x] ? dictionary[x] : -1
+  return -1
 }
 
 const s1= "CodefightsIsAwesome"
