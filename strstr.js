@@ -1,20 +1,12 @@
 function strstr(s, x) {
 
-let lengthX = x.length
-const sReverse =  s.split("").reverse()
-const xReverse = x.split("").reverse().join("")
-for(let i = sReverse.length; i >= 0; i--){
-
-  if(sReverse.join("").slice(-lengthX) === xReverse){
-    return s.length - i
+  const dictionary = {}
+    
+  for(let i = 0; i < s.length; i++){
+      dictionary[s.slice(i, x.length)] = i
   }
-  
-  sReverse.pop()
-  
-  console.log({sReverse: sReverse.join("")})
-}
-
-return -1
+  console.log(dictionary)
+  return dictionary[x] ? dictionary[x] : -1
 
 }
 
