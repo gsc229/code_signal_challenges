@@ -1,17 +1,21 @@
 function strstr(s, x) {
 
-  const dictionary = {}
-  let lengthX = x.length
+let lengthX = x.length
+const sReverse =  s.split("").reverse()
+const xReverse = x.split("").reverse().join("")
+for(let i = sReverse.length; i >= 0; i--){
 
-  for(let i = 0; i < s.length; i++){
-    const entry = s.slice(i, i + x.length)
-    console.log({entry, lengthX})
-    if(!dictionary[entry]){
-      dictionary[entry] = i
-    }
+  if(sReverse.join("").slice(-lengthX) === xReverse){
+    return s.length - i
   }
-  console.log(dictionary)
-  return dictionary[x] ? dictionary[x] : -1
+  
+  sReverse.pop()
+  
+  console.log({sReverse: sReverse.join("")})
+}
+
+return -1
+
 }
 
 const s1= "CodefightsIsAwesome"
@@ -24,8 +28,9 @@ const s3 =  "CodefightsIsAwesome"
 const x3 =  "IsA"
 
 const s4 = "ATErUUeUkVFVNfxfUKtntOErKmZLUpWpHRASdxjUhzzxygmnNnKabPPgPqyvCLSCZObaNNGCXQssfEEDDJIPBwtkMmTniKapBlrd"
+//                                                                     |                                   |
 const x4 = "vCLSCZObaNNGCXQssfEEDDJIPBwtkMmTniKa"
 
-console.log(strstr(s4, x4))
+console.log(strstr(s3, x3))
 
 // optimize this code
