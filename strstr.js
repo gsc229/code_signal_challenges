@@ -2,6 +2,8 @@ function strstr(s, x) {
 
   const xLength = x.length
 
+  
+
   for(let i = 0; i < s.length; i++){
     const window = s.slice(i, i + xLength)
     if(window === x){
