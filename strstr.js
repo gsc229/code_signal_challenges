@@ -4,7 +4,6 @@ function strstr(s, x) {
 
   for(let i = 0; i < s.length; i++){
     const window = s.slice(i, i + xLength)
-    console.log(window)
     if(window === x){
       return i
     }
@@ -20,3 +19,5 @@ const s2 = "CodefightsIsAwesome"
 const x2 = "IsA"
 
 console.log(strstr(s2, x2))
+
+// optimize this code
