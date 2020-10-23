@@ -3,17 +3,28 @@ function strstr(s, x) {
     return 0  
   }
 
-const tryLimit = 1000000
+  let temp = ""
 
-for(let i = 1; i < tryLimit; i++){
-    
-    const randomIndex = Math.floor(Math.random() * s.length)
-    const randomStr = s.slice(randomIndex, randomIndex + x.length)
-    console.log({randomIndex, randomStr})
-    if(x === randomStr){
-        return randomIndex
+  for(let i = 0; i < s.length; i++){
+    if(s[i] === x[0]){
+      const slice = s.slice(i, i + x.length)
+      if(slice===x){
+        return i
+      } 
+      /* for(let j = 0; j < x.length; j++){
+        if(x[j] === s[i+j]){
+            temp = temp + s[i+j]
+            if(temp === x){
+                return i
+            }
+        } else{
+            temp = ""
+            break
+        }   
+      } */
     }
-}
+  }
+
 
   return -1
 }
