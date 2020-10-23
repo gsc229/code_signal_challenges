@@ -1,14 +1,30 @@
 function strstr(s, x) {
+  if(s===x){
+    return 0  
+  }
 
-  const xLength = x.length
+  let temp = ""
 
   for(let i = 0; i < s.length; i++){
-    const window = s.slice(i, i + xLength)
-    console.log(window)
-    if(window === x){
-      return i
+    if(s[i] === x[0]){
+      const slice = s.slice(i, i + x.length)
+      if(slice===x){
+        return i
+      } 
+      /* for(let j = 0; j < x.length; j++){
+        if(x[j] === s[i+j]){
+            temp = temp + s[i+j]
+            if(temp === x){
+                return i
+            }
+        } else{
+            temp = ""
+            break
+        }   
+      } */
     }
   }
+
 
   return -1
 }
@@ -19,4 +35,12 @@ const x1= "IA"
 const s2 = "CodefightsIsAwesome"
 const x2 = "IsA"
 
-console.log(strstr(s2, x2))
+const s3 =  "CodefightsIsAwesome"
+const x3 =  "IsA"
+
+const s4 = "ATErUUeUkVFVNfxfUKtntOErKmZLUpWpHRASdxjUhzzxygmnNnKabPPgPqyvCLSCZObaNNGCXQssfEEDDJIPBwtkMmTniKapBlrd"
+const x4 = "vCLSCZObaNNGCXQssfEEDDJIPBwtkMmTniKa"
+
+console.log(strstr(s4, x4))
+
+// optimize this code
