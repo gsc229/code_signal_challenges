@@ -1,57 +1,102 @@
 function sudoku2(grid) {
+  
+
+  // horizontal
+  const rows = {}
+  // vertical
+  const columns = {}
+  // subgrid
+  const subgrids = {}
+
+  for(let i = 0; i < grid.length; i++){
+    // rows
+    rows[i] = grid[i]
     
+  }
+  
+  let count = 0
 
-  for(i = 0; i < grid.length; i++){
+  while(count < 9){
 
-       // test horizontal
-       for(j=0; j < grid[i].length; j++){
-           if(grid[i][j] !== "."){
-               let filtered = grid[i].filter(num=>{
-                   return num == grid[i][j]
-               })
-               if(filtered.length > 1){
-                   console.log(`false horizontal: ${filtered}`)
-                   return false
-               }
+    const newColumn = []
 
-           }
+    for(let i = 0; i < grid.length; i++){
+      newColumn.push(grid[i][count])
+    }
+    columns[count] = newColumn
+    count += 1
+  }
 
-           // test vertical
-           if(i == 0){
-               let vertical = []
-               console.log(`i is ${i}`)
-               vertical.push(grid[i][j], grid[i+1][j],grid[i+2][j],grid[i+3][j],grid[i+4][j],grid[i+5][j],grid[i+6][j],
-                   grid[i+7][j], grid[i+8][j]
-                   )
-               
-               for(k=0; k<vertical.length; k++){
-                   if((vertical.indexOf(vertical[k]) !== vertical.lastIndexOf(vertical[k]) && vertical[k] !== "." )){
-                       console.log(`false vertical: ${vertical}`)
-                       return false
-                   }
-               }
-               
-           }
-           //test subgrid
-           if((i==1 && j==1) || (i==1 && j==4) || (i==1 && j==7) || (i==4 && j==1 )||(i==4 && j==4) || (i==4 && j==7) || (i==7 && j==1) || (i==7 && j==4) || (i==7 && j==7)){
-               let subgrid = [ grid[i-1][j-1],  grid[i-1][j], grid[i-1][j+1],         
-                               grid[i][j-1],    grid[i][j],   grid[i][j+1],  
-                               grid[i+1][j-1],  grid[i+1][j], grid[i+1][j+1],
-                               ]
-               console.log(subgrid)
-               for(s=0; s<subgrid.length; s++){
-                   if((subgrid.indexOf(subgrid[s]) !== subgrid.lastIndexOf(subgrid[s])) && subgrid[s] !== "."){
-                       console.log(`false subgrid, i:${i} j: ${j} : ${subgrid}`)
-                       return false 
-                    }
-               }             
-           }
+  count = 0
 
-           
-       }  
-       
-   }
-   
-   return true
+  
+  while(count < 9){
+    
+    let section = 'top' // or middle or bottom
+    let row = 0
+    let col = 0  
 
-}
+    let newSubGrid = []
+    
+    for(let i = 0; i < 9; i++){
+      newSubGrid.push(rows[row][i])
+      row+=1
+      col+=1
+      
+    }
+    subgrids[count]  = newSubGrid
+    count +=1
+  }
+
+
+  
+
+  return subgrids
+
+}                      
+/*                       // SUB GRID: 0
+//          r:0 -->  0    1    2   r:1 -->  0    1    2  r:2 --> 0    1    2
+              [     '.', '.', '.',         '.', '.', '6',       '.', '.', '.' ]
+
+                        // SUB GRID: 1
+//          r:0 -->  3    4    5   r:1 -->  3    4    5  r:2 --> 3    4    5
+              [     '1', '4', '.',         '.', '.', '.',       '.', '.', '.' ]
+
+                        // SUB GRID: 2
+//          r:0 -->  6    7    8   r:1 -->  6    7    8  r:2 --> 6    7    8
+              [     '.', '2', '.',         '.', '.', '.',       '.', '.', '.' ]
+
+                        // SUB GRID: 3
+//          r:3 -->  0    1    2    r:4 --> 0    1    2  r:5 --> 0    1    2
+              [     '.', '.', '1',         '.', '.', '7',       '.', '.', '.' ] 
+
+                        // SUB GRID: 4
+//          r:3 -->  3    4    5    r:4 --> 3    4    5  r:5 --> 3    4    5
+              [     '.', '.', '1',         '.', '.', '7',       '.', '.', '.' ] 
+              
+
+              */
+
+            //  0    1    2    3    4    5    6    7    8
+const grid1 =[['.', '.', '.', '1', '4', '.', '.', '2', '.'],// 0
+              ['.', '.', '6', '.', '.', '.', '.', '.', '.'],// 1
+              ['.', '.', '.', '.', '.', '.', '.', '.', '.'],// 2
+              ['.', '.', '1', '.', '.', '.', '.', '.', '.'],// 3
+              ['.', '6', '7', '.', '.', '.', '.', '.', '9'],// 4
+              ['.', '.', '.', '.', '.', '.', '8', '1', '.'],// 5
+              ['.', '3', '.', '.', '.', '.', '.', '.', '6'],// 6
+              ['.', '.', '.', '.', '.', '7', '.', '.', '.'],// 7
+              ['.', '.', '.', '5', '.', '.', '.', '7', '.']]// 8
+
+const grid2 =[['.', '.', '.', '.', '2', '.', '.', '9', '.'], // false
+              ['.', '.', '.', '.', '6', '.', '.', '.', '.'],
+              ['7', '1', '.', '.', '7', '5', '.', '.', '.'],
+              ['.', '7', '.', '.', '.', '.', '.', '.', '.'],
+              ['.', '.', '.', '.', '8', '3', '.', '.', '.'],
+              ['.', '.', '8', '.', '.', '7', '.', '6', '.'],
+              ['.', '.', '.', '.', '.', '2', '.', '.', '.'],
+              ['.', '1', '.', '2', '.', '.', '.', '.', '.'],
+              ['.', '2', '.', '.', '3', '.', '.', '.', '.']]
+
+
+console.log(sudoku2(grid1))
