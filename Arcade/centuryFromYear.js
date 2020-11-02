@@ -13,4 +13,4 @@ function centuryFromYear(year) {
 
 
 
-console.log(centuryFromYear(101))
+console.log(centuryFromYear(50))
