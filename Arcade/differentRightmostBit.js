@@ -1,4 +1,11 @@
 function differentRightmostBit(n, m, ans) {
+
+  const nBit = n.toString(2)
+  const mBit = m.toString(2)
+  const nXORm = (n ^ m).toString(2)
+  const NOTnXORmPLUS1 = (~(n^m)).toString(2)
+  const nXORmANDNOTnXORmPLUS1 = (parseInt(nXORm,2) & parseInt(NOTnXORmPLUS1,2)).toString(2)
+  console.log('Breakdown: ', {solution: "(n ^ m) & (~(n ^ m) + 1)",n, m, nBit, mBit, nXORm, NOTnXORmPLUS1, nXORmANDNOTnXORmPLUS1})
   return (n ^ m) & (~(n ^ m) + 1);
 }
 
