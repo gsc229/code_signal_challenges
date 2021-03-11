@@ -6,18 +6,22 @@ function fibonacci(n, memo){
 
   
   memo = memo || {}
-  console.log(n, memo)
+  console.log({n, "n-1": n-2, "n-2": n-1, memo})
   
   if(memo[n]) return memo[n]
 
-  if(n <= 0){
+  if(n===0){
+    return 0
+  }
+
+  if(n <= 1){
     return 1
   }
 
   return memo[n] = fibonacci(n-1, memo) + fibonacci(n-2, memo)
 }
 
-const n1 = 5
+const n1 = 8
 
 // 8                                                          (7)                                              +                                                 (6) 
 //                                        (6)                  +                       (5)                                                 (5)                    +                      (4)
@@ -31,4 +35,4 @@ const n1 = 5
 //        (1)**+(0)*
 //
 
-console.log({result: fibonacci(n1), functionCalls})
+console.log({result: fibonacci(8), functionCalls})
