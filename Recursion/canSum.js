@@ -2,6 +2,7 @@ let calls = 0
 
 const canSum = (targetSum, numbers, memo={}) => {
   calls += 1
+  
   if(targetSum in memo){
     console.log('RETURN FROM MEMO: ', memo)
     return memo[targetSum]
