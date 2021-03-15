@@ -13,8 +13,8 @@ def gridTraveler(n, m, memo={}):
     return 1
 
   memo[key] = gridTraveler( n - 1, m ) + gridTraveler( n,  m - 1 )
-  print(memo)
+  #print(memo)
   return memo[key]
 
 
-print(gridTraveler(20, 37))
+print(gridTraveler(200, 37))

@@ -16,8 +16,10 @@ const howSum = (targetSum, numbers, memo={}) => {
     
     if(result !== null){
       memo[targetSum] = result
+      
 
       return [...result, num]
+    
     }
 
   }
@@ -27,6 +29,6 @@ const howSum = (targetSum, numbers, memo={}) => {
 
 }
 
-console.log(howSum(7, [5, 3, 4, 7]), calls)
+console.log(howSum(7, [5, 3, 4, 7]))
 calls = 0
-console.log(howSum(300, [7, 14]), calls)
+console.log(howSum(300, [7, 14]))
