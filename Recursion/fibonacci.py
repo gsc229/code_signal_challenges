@@ -14,4 +14,4 @@ def fibonacci(n, memo={}):
   return memo[n]
 
 
-print(fibonacci(70))
+print(fibonacci(6))
