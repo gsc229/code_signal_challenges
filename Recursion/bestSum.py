@@ -23,4 +23,4 @@ def bestSum(targetSum, array, memo={}):
   memo[targetSum] = bestCombo
   return bestCombo
 
-print(bestSum(70, [5, 3, 4, 30]))
+print(bestSum(70, [5, 3, 4,1,1,1,1,1,1,1,1,1,1,1,1,1,1,30]))
