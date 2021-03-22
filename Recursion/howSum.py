@@ -1,5 +1,5 @@
 def howSum(targetSum, array, memo={}):
-  print(memo)
+  #print(memo)
   if targetSum in memo:
     return memo[targetSum]
 
@@ -19,4 +19,4 @@ def howSum(targetSum, array, memo={}):
 
   memo[targetSum] = None
   return None
-print("Answer: ", howSum(2075, [14, 5, 6]))
+print("Answer: ", howSum(59, [14, 4, 6, 5, 2]))
