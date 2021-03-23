@@ -1,9 +1,9 @@
 def canConstruct(target, wordBank, memo={}):
-
+  print(target, memo)
   if target not in memo:
     memo[target] = True
   else:
-    return
+    return False
   
 
   if target == '':
@@ -19,12 +19,7 @@ def canConstruct(target, wordBank, memo={}):
   return False
 
 
-
-
-
-
-
-#print(canConstruct("abcdef", ["ab", "abc", "cd", "def", "abcd"])) # true
+print(canConstruct("abcdef", ["ab", "abc", "cd", "def", "abcd"])) # true
 #print(canConstruct("skateboard", ["bo", "rd", "ate", "t", "ska", "sk", "boar"])) #false
 #print(canConstruct("enterapotentpot", ["a", "p", "ent", "enter", "ot", "o", "t"])) # true
 print(canConstruct("eeeeeeeeeeeeeeeeeeeeef", ["e", "eee", "eeee", "eeeeeeeee", "eeeeeeee"])) # false 
