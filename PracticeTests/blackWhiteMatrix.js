@@ -8,9 +8,9 @@ function meanAndChessboard(matrix, queries) {
           const isWhite = (y%2 === 0 && x%2 === 0) || (y%2 !== 0 && x%2 !== 0)
           
           if(isWhite){
-              whiteRankings.push({value: matrix[y][x], x, y})
+            whiteRankings.push({value: matrix[y][x], x, y})
           } else{
-              blackRankings.push({value: matrix[y][x], x, y})
+            blackRankings.push({value: matrix[y][x], x, y})
           }
           
       }
@@ -24,9 +24,19 @@ function meanAndChessboard(matrix, queries) {
   queries.forEach(query => {
       const black = blackRankings[query[0]]
       const white = whiteRankings[query[1]]
-      const average = blackRankings
+      const average = black.value + white.value / 2
+      const isWhole = average / Math.floor(average) === 1
+      console.log({black, white, query, average, isWhole})
+
+      if(isWhole){
+        matrix[black.y][black.x] = average
+      } else{
+        matrix[white.y][white.x] = Math.floor(average)
+      }
       
   })
+
+  return matrix
 }
 
 const matrix = [
@@ -36,6 +46,7 @@ const matrix = [
                 [2, 5, 6, 7], 
                 [9, 3, 4, 5]
                 ]
+
 const queries = [[1, 1], [3, 4]]
 
 
