@@ -32,4 +32,4 @@ const bestSum = (target, numbers, memo={}) => {
 }
 
 
-console.log(bestSum(16, [1, 1, 1, 5, 8]), {calls})
+console.log(`%c${bestSum(16, [1, 1, 1, 5, 8])}, ${JSON.stringify({calls})}`, 'font-weight: bold; color: red;')
