@@ -12,12 +12,10 @@ const quickSort = (array) => {
   const left = []
   const right = []
 
-  for(let i = 1; i < array.length; i++){
-    if(array[i] <= pivot) left.push(array[i])
-    if(array[i] > pivot) right.push(array[i])
+  for(number of array.slice(1, array.length)){
+    if(number <= pivot) left.push(number)
+    if(number > pivot) right.push(number)
   }
-
-  
 
   left.push(pivot)
   console.log({call, array,  pivot, left, right})
